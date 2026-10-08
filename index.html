@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Skills Toolkit — Week 1</title>
+  <meta name="description" content="My Skills Toolkit — Week 1: All About Me. A child-friendly skills-building game for ages 8–12.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <strong>MY SKILLS</strong>
+          <span>TOOLKIT</span>
+        </div>
+      </div>
+
+      <nav class="weeks" aria-label="Weeks">
+        <button class="nav-btn active">🏠 <span>Home</span></button>
+        <button class="nav-btn active-week">⭐ <span>Week 1</span><b>›</b></button>
+        <div class="locked-weeks">
+          <button class="nav-btn" disabled>🔒 <span>Week 2</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 3</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 4</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 5</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 6</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 7</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 8</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 9</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 10</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 11</span></button>
+          <button class="nav-btn" disabled>🔒 <span>Week 12</span></button>
+        </div>
+      </nav>
+
+      <div class="side-links">
+        <button class="nav-btn" onclick="scrollToSection('backpack')">🎒 <span>My Backpack</span></button>
+        <button class="nav-btn" onclick="showProgress()">📊 <span>My Progress</span></button>
+        <button class="nav-btn" onclick="resetGame()">⚙️ <span>Reset</span></button>
+      </div>
+
+      <div class="you-got-this">YOU GOT THIS!<span>★</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-message">
+          <div class="pixel-avatar mini" id="topAvatar">🧑🏽‍🚀</div>
+          <div>
+            <strong>You're on a journey!</strong>
+            <p>Each week you'll learn new skills, earn XP, and unlock new areas.</p>
+            <b>Small steps → Big progress!</b>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-name">PLAYER 001 <span>LVL 1</span></div>
+          <div class="xp-row"><span>XP</span><div class="xp-bar"><i id="xpBar"></i></div><span id="xpText">0 / 100</span></div>
+          <div class="stats">
+            <span>❤️ <b>100</b> Health</span>
+            <span>🧠 <b>100</b> Brain Power</span>
+            <span>🪙 <b id="coinCount">0</b> Coins</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="week-badge">WEEK 1</div>
+          <h1>ALL ABOUT ME</h1>
+          <p>Get to know your player! You are more than just one thing. Let's explore your strengths, interests, and goals.</p>
+        </div>
+        <div class="level-up">LEVEL<br>UP!</div>
+      </section>
+
+      <div class="grid">
+        <section class="panel avatar-panel" id="avatar">
+          <div class="panel-title"><span class="step">1</span><div><h2>Create Your Avatar</h2><p>Choose how you want your player to look!</p></div></div>
+          <div class="avatar-content">
+            <div class="avatar-preview" id="avatarPreview">🧑🏽‍🚀</div>
+            <div class="choices">
+              <label>Skin / Face</label>
+              <div class="choice-row" data-group="face">
+                <button data-value="🧑🏻‍🚀">🧑🏻‍🚀</button><button data-value="🧑🏼‍🚀">🧑🏼‍🚀</button>
+                <button data-value="🧑🏽‍🚀" class="selected">🧑🏽‍🚀</button><button data-value="🧑🏾‍🚀">🧑🏾‍🚀</button><button data-value="🧑🏿‍🚀">🧑🏿‍🚀</button>
+              </div>
+              <label>Player Style</label>
+              <div class="choice-row" data-group="style">
+                <button data-value="🧑‍🚀" class="selected">🧑‍🚀</button><button data-value="🧙">🧙</button>
+                <button data-value="🥷">🥷</button><button data-value="🦸">🦸</button><button data-value="🧑‍🎨">🧑‍🎨</button>
+              </div>
+              <button class="action-btn small" onclick="completeAvatar()">✓ SAVE AVATAR</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel strengths-panel">
+          <div class="panel-title"><span class="step">2</span><div><h2>Discover Your Strengths</h2><p>Pick 3–5 things that feel like you!</p></div></div>
+          <div class="tiles" id="strengths">
+            <button data-xp="5">🧠<span>Thinking & Solving</span></button>
+            <button data-xp="5">❤️<span>Being Kind</span></button>
+            <button data-xp="5">🎨<span>Creativity</span></button>
+            <button data-xp="5">🚩<span>Trying Hard</span></button>
+            <button data-xp="5">🤝<span>Helping Others</span></button>
+            <button data-xp="5">⚽<span>Sports & Movement</span></button>
+            <button data-xp="5">🎵<span>Music</span></button>
+            <button data-xp="5">🖌️<span>Art</span></button>
+            <button data-xp="5">🎮<span>Gaming</span></button>
+          </div>
+          <button class="action-btn" onclick="saveStrengths()">✓ SAVE STRENGTHS</button>
+        </section>
+
+        <section class="panel quest-panel">
+          <div class="panel-title"><span class="target">🎯</span><div><h2>Your Quest</h2><p>Choose one thing you want to focus on this week.</p></div></div>
+          <div class="quest-options" id="quests">
+            <button>🟡 Staying calm</button>
+            <button>🔵 Paying attention</button>
+            <button>🟠 Handling frustration</button>
+            <button>🟢 Making friends</button>
+            <button>🟣 Getting homework done</button>
+            <button>🔴 Asking for help</button>
+            <button>⚪ Something else</button>
+          </div>
+          <button class="gold-btn" onclick="acceptQuest()">ACCEPT QUEST <span>➜</span></button>
+          <div class="quest-status" id="questStatus">No quest selected yet.</div>
+        </section>
+
+        <section class="panel likes-panel">
+          <div class="panel-title"><span class="step">3</span><div><h2>Things I Like</h2><p>What do you enjoy? Add at least 3.</p></div><button class="add-btn">＋ ADD MORE</button></div>
+          <div class="tiles compact" id="likes">
+            <button>🎮<span>Games</span></button><button>🎧<span>Music</span></button><button>🏀<span>Sports</span></button>
+            <button>👥<span>Friends</span></button><button>🐾<span>Animals</span></button><button>📚<span>Reading</span></button><button>➕<span>Other</span></button>
+          </div>
+        </section>
+
+        <section class="panel goal-panel">
+          <div class="panel-title"><span class="step">4</span><div><h2>This Week I Will…</h2><p>Choose one small step you want to take.</p></div></div>
+          <div class="quick-goals" id="quickGoals">
+            <button>Make it a small step</button>
+            <button>Ask for help</button>
+            <button>Practice my skill</button>
+          </div>
+          <textarea id="goal" maxlength="140" placeholder="Type your goal here..."></textarea>
+          <div class="textarea-meta"><span id="goalCount">0/140</span><button class="action-btn small" onclick="saveGoal()">✓ SAVE GOAL</button></div>
+        </section>
+
+        <section class="panel ready-panel" id="backpack">
+          <div class="ready-art">🏔️<br><span>🚩</span></div>
+          <div>
+            <div class="ready-label">WEEK 1</div>
+            <h2 id="readyTitle">READY!</h2>
+            <p id="readyText">You're off to a great start!</p>
+          </div>
+          <button class="gold-btn" onclick="finishWeek()">FINISH WEEK 1 <span>➜</span></button>
+        </section>
+      </div>
+
+      <section class="progress-strip">
+        <div class="progress-node done">1</div>
+        <div class="progress-line"></div>
+        <div class="progress-node">2</div><div class="progress-line"></div>
+        <div class="progress-node">3</div><div class="progress-line"></div>
+        <div class="progress-node">4</div><div class="progress-line"></div>
+        <div class="progress-node">5</div><div class="progress-line"></div>
+        <div class="progress-node">6</div><div class="progress-line"></div>
+        <div class="progress-node">7</div><div class="progress-line"></div>
+        <div class="progress-node">8</div><div class="progress-line"></div>
+        <div class="progress-node">9</div><div class="progress-line"></div>
+        <div class="progress-node">10</div><div class="progress-line"></div>
+        <div class="progress-node">11</div><div class="progress-line"></div>
+        <div class="progress-node">12</div>
+      </section>
+
+      <footer>
+        <span>Skills-building activity for ages 8–12 • Not a diagnostic tool or substitute for professional care.</span>
+        <button onclick="printPage()">🖨️ Print</button>
+        <button onclick="saveAll()">💾 Save</button>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
